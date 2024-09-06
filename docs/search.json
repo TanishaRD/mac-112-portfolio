@@ -2,31 +2,29 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "COMP/STAT112 Notebook",
+    "title": "Stat112 Notebook",
     "section": "",
-    "text": "Introduction\nThis is my online notebook for COMP/STAT112 course taken at Macalester College. Please, use the side bar on the left for navigation.",
-    "crumbs": [
-      "Introduction"
-    ]
+    "text": "Introduction\nThis is my online notebook for COMP/STAT112 course taken at Macalester College. Please, use the side bar on the left for navigation."
   },
   {
     "objectID": "activities/README.html",
     "href": "activities/README.html",
     "title": "Activities",
     "section": "",
-    "text": "All activities live here.",
-    "crumbs": [
-      "Activities"
-    ]
+    "text": "All activities live here."
   },
   {
     "objectID": "notes/README.html",
     "href": "notes/README.html",
     "title": "Notes",
     "section": "",
-    "text": "All notes live here.",
-    "crumbs": [
-      "Notes"
-    ]
+    "text": "All notes live here."
+  },
+  {
+    "objectID": "notes/note-01.html",
+    "href": "notes/note-01.html",
+    "title": "4  Note 01: Reading chapter 2 part 1",
+    "section": "",
+    "text": "Quarto knits to a qmd and it makes documents far prettier than just knitting to an rmd. Quarto is the newest version of Rmarkdown\nQuarto supports multiple languages (python, Javascript, Julia, R)\nDon’t use the console unless you are doing calculations and looking for help\nTo make something bold use two ** surrounding the phrase.\nTo italicize something, use one * around the phrase (or _ around)\nMake sure to space out your code and comment your R-chunks\nCamelCase is like this thisVariableCapitalizesTheFirstLetterExceptTheFirst\nSnake case is like this this_is_snake_case\nwordsOnTheScreen is used to link to an image"
   }
 ]
