@@ -1,4 +1,7 @@
 ---
-title: "Activity 01"
+title: "HW1 in class"
 ---
 
+ I did not understand how to push changes. Every time I push changes and pressed 'View On Github', I got an error 404 not found. I don't know why. 
+ However, with the actual homework, I understood everything. 
+ I learned that there are two modes: source and visual, and I figured out how to switch between the two, and how code shows up differently on both modes. 
