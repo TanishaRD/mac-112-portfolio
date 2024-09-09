@@ -1,3 +1,13 @@
 ---
-title: "Note 02"
+title: "Chapter 3"
 ---
+
+Data visualization lets you find outliers, look at the shape of the data, and identify trends. Keep in mind when creating a graphic:
+
+-   Axes variables and names
+-   Colors & Themes: make is accessibility friendly
+-   Facets
+-   Scale + floating axes
+-   Layers: how many lines, points, bars
+
+To do this in R, we use the package ggplot2. 

@@ -23,7 +23,7 @@
   {
     "objectID": "notes/note-01.html",
     "href": "notes/note-01.html",
-    "title": "4  Note 01: Reading chapter 2 part 1",
+    "title": "4  Chapter 2",
     "section": "",
     "text": "Quarto knits to a qmd and it makes documents far prettier than just knitting to an rmd. Quarto is the newest version of Rmarkdown\nQuarto supports multiple languages (python, Javascript, Julia, R)\nDon’t use the console unless you are doing calculations and looking for help\nTo make something bold use two ** surrounding the phrase.\nTo italicize something, use one * around the phrase (or _ around)\nMake sure to space out your code and comment your R-chunks\nCamelCase is like this thisVariableCapitalizesTheFirstLetterExceptTheFirst\nSnake case is like this this_is_snake_case\nwordsOnTheScreen is used to link to an image"
   },
@@ -33,5 +33,12 @@
     "title": "1  HW1 in class",
     "section": "",
     "text": "I did not understand how to push changes. Every time I push changes and pressed ‘View On Github’, I got an error 404 not found. I don’t know why.\nHowever, with the actual homework, I understood everything.\nI learned that there are two modes: source and visual, and I figured out how to switch between the two, and how code shows up differently on both modes."
+  },
+  {
+    "objectID": "notes/note-02.html",
+    "href": "notes/note-02.html",
+    "title": "5  Chapter 3",
+    "section": "",
+    "text": "Data visualization lets you find outliers, look at the shape of the data, and identify trends. Keep in mind when creating a graphic:\n\nAxes variables and names\nColors & Themes: make is accessibility friendly\nFacets\nScale + floating axes\nLayers: how many lines, points, bars\n\nTo do this in R, we use the package ggplot2."
   }
 ]
