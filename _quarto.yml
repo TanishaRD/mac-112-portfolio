@@ -13,7 +13,7 @@ book:
 
     - part: activities/README.qmd
       chapters: 
-      - activities/activity-01.qmd
+      - activities/data_viz.qmd
       - activities/activity-02.qmd
       - activities/activity-03.qmd
     
