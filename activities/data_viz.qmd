@@ -361,16 +361,19 @@ ggplot(hikes, aes(x = elevation)) +
 
 -   INTUITION CHECK: Before tweaking the code and thinking back to `geom_bar()` and `geom_histogram()`, how do you *anticipate* the following code will change the plot?
 
-    -   `geom_density(color = "blue")`
-    -   `geom_density(fill = "orange")`
+    -   `geom_density(color = "blue")` The line (outline) will be blue 
+    -   `geom_density(fill = "orange")` The area under the line will be orange 
 
 -   TRY IT! Test out those lines in the chunk below. Was your intuition correct?
 
 ```{r}
-
+ggplot(hikes, aes(x = elevation)) +
+  geom_density(color= 'blue', fill='orange')
 ```
 
 -   Examine the density plot. How does it compare to the histogram? What does it tell you about the *typical* elevation, *variability / range* in elevations, and *shape* of the distribution of *elevations* within this range?
+
+It tells us that the typical elevation was about 4125ft, and that the data was positively skewed. 
 
 \
 \
