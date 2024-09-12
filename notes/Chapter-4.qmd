@@ -1,0 +1,17 @@
+---
+title: "Chapter 4"
+---
+
+Bivariate visualizations look at relationships *between* variables.
+You look at the effect of the predictor (x) variables on the response (y) variable. 
+You can use these visualizations to find: 
+
+- Trends 
+- Strength of correlation 
+- Outliers 
+
+Basic notes: 
+
+- Every quantitative variable needs a new axis 
+- Every categorical variable needs a new way to group (color, facet, shapes, etc.)
+- If you have overlapping lines, play with alpha (transparency) and facets

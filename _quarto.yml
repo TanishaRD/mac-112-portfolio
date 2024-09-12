@@ -19,8 +19,9 @@ book:
     
     - part: notes/README.qmd
       chapters: 
-      - notes/note-01.qmd
-      - notes/note-02.qmd
+      - notes/Chapter-2.qmd
+      - notes/Chapter-3.qmd
+      - notes/Chapter-4.qmd
 
 format:
   html:

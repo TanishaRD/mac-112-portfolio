@@ -40,5 +40,26 @@
     "title": "5  Chapter 3",
     "section": "",
     "text": "Data visualization lets you find outliers, look at the shape of the data, and identify trends. Keep in mind when creating a graphic:\n\nAxes variables and names\nColors & Themes: make is accessibility friendly\nFacets\nScale + floating axes\nLayers: how many lines, points, bars\n\nTo do this in R, we use the package ggplot2."
+  },
+  {
+    "objectID": "notes/Chapter-4.html",
+    "href": "notes/Chapter-4.html",
+    "title": "6  Chapter 4",
+    "section": "",
+    "text": "Bivariate visualizations look at relationships between variables. You look at the effect of the predictor (x) variables on the response (y) variable. You can use these visualizations to find:\n\nTrends\nStrength of correlation\nOutliers\n\nBasic notes:\n\nEvery quantitative variable needs a new axis\nEvery categorical variable needs a new way to group (color, facet, shapes, etc.)\nIf you have overlapping lines, play with alpha (transparency) and facets"
+  },
+  {
+    "objectID": "notes/Chapter-3.html",
+    "href": "notes/Chapter-3.html",
+    "title": "5  Chapter 3",
+    "section": "",
+    "text": "Data visualization lets you find outliers, look at the shape of the data, and identify trends. Keep in mind when creating a graphic:\n\nAxes variables and names\nColors & Themes: make is accessibility friendly\nFacets\nScale + floating axes\nLayers: how many lines, points, bars\n\nTo do this in R, we use the package ggplot2."
+  },
+  {
+    "objectID": "notes/Chapter-2.html",
+    "href": "notes/Chapter-2.html",
+    "title": "4  Chapter 2",
+    "section": "",
+    "text": "Quarto knits to a qmd and it makes documents far prettier than just knitting to an rmd. Quarto is the newest version of Rmarkdown\nQuarto supports multiple languages (python, Javascript, Julia, R)\nDon’t use the console unless you are doing calculations and looking for help\nTo make something bold use two ** surrounding the phrase.\nTo italicize something, use one * around the phrase (or _ around)\nMake sure to space out your code and comment your R-chunks\nCamelCase is like this thisVariableCapitalizesTheFirstLetterExceptTheFirst\nSnake case is like this this_is_snake_case\nwordsOnTheScreen is used to link to an image"
   }
 ]
