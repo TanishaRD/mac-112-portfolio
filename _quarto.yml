@@ -14,7 +14,7 @@ book:
     - part: activities/README.qmd
       chapters: 
       - activities/data_viz.qmd
-      - activities/activity-02.qmd
+      - activities/bivariate_viz.qmd
       - activities/activity-03.qmd
     
     - part: notes/README.qmd

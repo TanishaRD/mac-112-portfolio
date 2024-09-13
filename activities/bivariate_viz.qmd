@@ -1,0 +1,160 @@
+
+---
+title: 'Bivariate Visualization'
+---
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+```
+
+
+Exercise 0: 
+```{r}
+# Load data
+elections <- read.csv("https://mac-stat.github.io/data/election_2020_county.csv")
+
+# Check it out
+head(elections)
+```
+```{r}
+ggplot(elections, aes(x=winner_20))+
+  geom_bar()
+elections %>%
+  count(winner_20)
+```
+The republicans won about 82.8% of the counties. 
+
+```{r}
+ggplot(elections, aes(x=repub_pct_20))+
+  geom_histogram()
+```
+I don't understand the significance of this being negatively skewed. 
+
+
+Exercise 1: 
+```{r}
+ggplot(elections, aes(x=repub_pct_16, y=repub_pct_20))+ 
+  geom_point()
+```
+ 
+Exercise 2: 
+
+```{r}
+# This shows the same plot as above in exercise 2, but with crosses. 
+ggplot(elections, aes(y = repub_pct_20, x = repub_pct_16)) +
+  geom_point(color = 'orange', shape=3)+
+  geom_text(aes(label = state_abbr))
+```
+
+Exercise 3: 
+
+With an increase in republican percentage in 2016, there is an increase in republican percentage in 2020. This relationship is very strong, and it is a positive relationship. A lot of counties in texas seem to lie above the trend (positive residuals), which could be because they are more republican than the average state. 
+
+Exercise 4: 
+```{r}
+ggplot(elections, aes(y = repub_pct_20, x = repub_pct_16)) +
+  geom_smooth()
+```
+```{r}
+ggplot(elections, aes(y = repub_pct_20, x = repub_pct_16)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+```{r}
+# Scatterplot of repub_pct_20 vs median_rent
+ggplot(elections, aes(x = median_rent, y = repub_pct_20)) +
+  geom_point() 
+
+
+# Scatterplot of repub_pct_20 vs median_age
+ggplot(elections, aes(x = median_age, y = repub_pct_20)) +
+  geom_point() 
+
+```
+
+Median rent seems to explain repub_pct_20 better: as median rent rises, repub_pct_20 seems to fall, suggesting a moderate negative relationship. Median age does not seem to explain repub_pct_20 very well. 
+
+Exercise 6: 
+
+```{r}
+ggplot(elections, aes(y = repub_pct_20, x = historical)) +
+  geom_point()
+```
+A scatterplot is very useful for 2 quantitative variables. Historical seems to be a categorical variable with 3 categories, so a boxplot would be a better idea. 
+
+Exercise 7: 
+
+```{r}
+ggplot(elections, aes(y = repub_pct_20, x = historical)) +
+  geom_violin()
+```
+
+```{r}
+ggplot(elections, aes(y = repub_pct_20, x = historical)) +
+  geom_boxplot()
+```
+This tells us that if a county was historically democrat, people voted less republican in 2020 than if the country was historically purple, which is less than if the county was historically red. 
+
+Exercise 8: 
+
+```{r}
+ggplot(elections, aes(x = repub_pct_20, fill=historical)) +
+  geom_density(alpha=0.5)
+```
+
+Exercise 9: 
+
+```{r}
+# Name two "bad" things about this plot
+ggplot(elections, aes(x = repub_pct_20, fill = historical)) +
+  geom_density()
+```
+1. It is opaque, so I can't see part of the data (for the green and red plots). 
+2. The colors do not correspond to the colors they are representing (red is blue, blue is red)
+
+```{r}
+# What does scale_fill_manual do?
+ggplot(elections, aes(x = repub_pct_20, fill = historical)) +
+  geom_density() +
+  scale_fill_manual(values = c("blue", "purple", "red"))
+```
+This fixes the second issue with this! The colors correspond to the category they are representing. 
+
+```{r}
+# What does alpha = 0.5 do?
+# Play around with different values of alpha, between 0 and 1
+ggplot(elections, aes(x = repub_pct_20, fill = historical)) +
+  geom_density(alpha = 0.5) +
+  scale_fill_manual(values = c("blue", "purple", "red"))
+```
+This fixes the first issue I had with the plot! It increases its transparency. 
+
+```{r}
+# What does facet_wrap do?!
+ggplot(elections, aes(x = repub_pct_20, fill = historical)) +
+  geom_density() +
+  scale_fill_manual(values = c("blue", "purple", "red")) +
+  facet_wrap(~ historical)
+```
+It makes each of the categories into separate small graphs, while using the same axes. 
+
+```{r}
+# Let's try a similar grouping strategy with a histogram instead of density plot.
+# Why is this terrible?
+ggplot(elections, aes(x = repub_pct_20, fill = historical)) +
+  geom_histogram(color = "white") +
+  scale_fill_manual(values = c("blue", "purple", "red"))
+```
+This uses a histogram, which is difficult to understand because there is so much information!
+
+Exercise 10: 
+
+- Which do you like best?
+Side-by-side boxplots
+- What is one pro of density plots relative to boxplots?
+It gives you a visual representation of how skewed the data is
+- What is one con of density plots relative to boxplots?
+It does not give you any numerical summaries (IQR, median)
