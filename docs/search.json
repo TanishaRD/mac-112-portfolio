@@ -61,5 +61,103 @@
     "title": "4  Chapter 2",
     "section": "",
     "text": "Quarto knits to a qmd and it makes documents far prettier than just knitting to an rmd. Quarto is the newest version of Rmarkdown\nQuarto supports multiple languages (python, Javascript, Julia, R)\nDon’t use the console unless you are doing calculations and looking for help\nTo make something bold use two ** surrounding the phrase.\nTo italicize something, use one * around the phrase (or _ around)\nMake sure to space out your code and comment your R-chunks\nCamelCase is like this thisVariableCapitalizesTheFirstLetterExceptTheFirst\nSnake case is like this this_is_snake_case\nwordsOnTheScreen is used to link to an image"
+  },
+  {
+    "objectID": "activities/data_viz.html#exercise-1-research-questions",
+    "href": "activities/data_viz.html#exercise-1-research-questions",
+    "title": "1  Data viz (Notes)",
+    "section": "Exercise 1: Research questions",
+    "text": "Exercise 1: Research questions\nLet’s dig into the hikes data, starting with the elevation and difficulty ratings of the hikes:\n\nhikes &lt;- read.csv(\"https://mac-stat.github.io/data/high_peaks.csv\")\n\n\nhead(hikes)\n\n             peak elevation difficulty ascent length time    rating\n1     Mt. Marcy        5344          5   3166   14.8 10.0  moderate\n2 Algonquin Peak       5114          5   2936    9.6  9.0  moderate\n3   Mt. Haystack       4960          7   3570   17.8 12.0 difficult\n4   Mt. Skylight       4926          7   4265   17.9 15.0 difficult\n5 Whiteface Mtn.       4867          4   2535   10.4  8.5      easy\n6       Dix Mtn.       4857          5   2800   13.2 10.0  moderate\n\n\n\nWhat features would we like a visualization of the categorical difficulty rating variable to capture?\n\n\nggplot(hikes, aes(x=rating))+ \n  geom_bar()\n\n\n\n\nWe would use a bar chart, because rating is categorical.\n\nWhat about a visualization of the quantitative elevation variable?\n\n\nggplot(hikes, aes(x=elevation))+ \n  geom_density()\n\n\n\n\nWe could use a density plot or histogram, because elevation is a quantitative variable."
+  },
+  {
+    "objectID": "activities/data_viz.html#exercise-2-load-tidyverse",
+    "href": "activities/data_viz.html#exercise-2-load-tidyverse",
+    "title": "1  Data viz (Notes)",
+    "section": "Exercise 2: Load tidyverse",
+    "text": "Exercise 2: Load tidyverse\nWe’ll address the above questions using ggplot tools. Try running the following chunk and simply take note of the error message – this is one you’ll get a lot!\n\n# Use the ggplot function\nggplot(hikes, aes(x = rating))\n\nIn order to use ggplot tools, we have to first load the tidyverse package in which they live. Mainly, we’ve installed the package but need to tell R when we want to use it. Run the chunk below to load the library. You’ll need to do this within any .qmd file that uses ggplot().\n\n# Load the package\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "activities/data_viz.html#exercise-3-bar-chart-of-ratings-part-1",
+    "href": "activities/data_viz.html#exercise-3-bar-chart-of-ratings-part-1",
+    "title": "1  Data viz (Notes)",
+    "section": "Exercise 3: Bar chart of ratings (part 1)",
+    "text": "Exercise 3: Bar chart of ratings (part 1)\nConsider some specific research questions about the difficulty rating of the hikes:\nHow many hikes fall into each category? Are the hikes evenly distributed among these categories, or are some more common than others?\nAll of these questions can be answered with: (1) a bar chart; of (2) the categorical data recorded in the rating column. First, set up the plotting frame:\n\nggplot(hikes, aes(x = rating))+ \n  geom_bar()\n\n\n\n\nModerate hikes are the most common hikes.\nThink about:\n\nWhat did this do? What do you observe?\nWhat, in general, is the first argument of the ggplot() function? Data\nWhat is the purpose of writing x = rating? Mapping the data\nWhat do you think aes stands for?!? Aesthetics"
+  },
+  {
+    "objectID": "activities/data_viz.html#exercise-4-bar-chart-of-ratings-part-2",
+    "href": "activities/data_viz.html#exercise-4-bar-chart-of-ratings-part-2",
+    "title": "1  Data viz (Notes)",
+    "section": "Exercise 4: Bar chart of ratings (part 2)",
+    "text": "Exercise 4: Bar chart of ratings (part 2)\nNow let’s add a geometric layer to the frame / canvas, and start customizing the plot’s theme. To this end, try each chunk below, one by one. In each chunk, make a comment about how both the code and the corresponding plot both changed.\nNOTE:\n\nPay attention to the general code properties and structure, not memorization.\nNot all of these are “good” plots. We’re just exploring ggplot.\n\n\n# COMMENT on the change in the code and the corresponding change in the plot\nggplot(hikes, aes(x = rating)) +\n  geom_bar()\n\n\n\n\n\n# The x and y axes labels changed by using the labs layer \nggplot(hikes, aes(x = rating)) +\n  geom_bar() +\n  labs(x = \"Rating\", y = \"Number of hikes\")\n\n\n\n\n\n# The bars are now blue by using the fill argument in the geom_bar function \nggplot(hikes, aes(x = rating)) +\n  geom_bar(fill = \"blue\") +\n  labs(x = \"Rating\", y = \"Number of hikes\")\n\n\n\n\n\n# The outline of the bars is orange now, using the color argument in geom_bar\nggplot(hikes, aes(x = rating)) +\n  geom_bar(color = \"orange\", fill = \"blue\") +\n  labs(x = \"Rating\", y = \"Number of hikes\")\n\n\n\n\n\n# The gray background is gone! \nggplot(hikes, aes(x = rating)) +\n  geom_bar(color = \"orange\", fill = \"blue\")  +\n  labs(x = \"Rating\", y = \"Number of hikes\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "activities/data_viz.html#exercise-5-bar-chart-follow-up",
+    "href": "activities/data_viz.html#exercise-5-bar-chart-follow-up",
+    "title": "1  Data viz (Notes)",
+    "section": "Exercise 5: Bar chart follow-up",
+    "text": "Exercise 5: Bar chart follow-up\n\nPart a\nReflect on the ggplot() code.\n\nWhat’s the purpose of the +? When do we use it? To add layers, themes, etc\nWe added the bars using geom_bar()? Why “geom”? Stands for geometric object\nWhat does labs() stand for? Labels\nWhat’s the difference between color and fill? Outline vs coloring inside the lines\n\n\n\nPart b\nIn general, bar charts allow us to examine the following properties of a categorical variable:\n\nobserved categories: What categories did we observe?\nvariability between categories: Are observations evenly spread out among the categories, or are some categories more common than others?\n\nWe must then translate this information into the context of our analysis, here hikes in the Adirondacks. Summarize here what you learned from the bar chart, in context.\nThe most common hike was moderate, followed by easy, followed by difficult.\n\n\nPart c\nIs there anything you don’t like about this barplot? For example: check out the x-axis again.\nI don’t like the order of the cateogries listed (it should be easy, moderate, difficult)"
+  },
+  {
+    "objectID": "activities/data_viz.html#exercise-6-sad-bar-chart",
+    "href": "activities/data_viz.html#exercise-6-sad-bar-chart",
+    "title": "1  Data viz (Notes)",
+    "section": "Exercise 6: Sad bar chart",
+    "text": "Exercise 6: Sad bar chart\nLet’s now consider some research questions related to the quantitative elevation variable:\nAmong the hikes, what’s the range of elevation and how are the hikes distributed within this range (e.g. evenly, in clumps, “normally”)? What’s a typical elevation? Are there any outliers, i.e. hikes that have unusually high or low elevations?\nHere:\n\nConstruct a bar chart of the quantitative elevation variable.\nExplain why this might not be an effective visualization for this and other quantitative variables. (What questions does / doesn’t it help answer?)\n\n\nggplot(hikes, aes(x=elevation))+ \n  geom_bar()\n\n\n\n\nThe bars are so thin, because each individual elevation is not repeated (it is not categorical)."
+  },
+  {
+    "objectID": "activities/data_viz.html#exercise-7-a-histogram-of-elevation",
+    "href": "activities/data_viz.html#exercise-7-a-histogram-of-elevation",
+    "title": "1  Data viz (Notes)",
+    "section": "Exercise 7: A histogram of elevation",
+    "text": "Exercise 7: A histogram of elevation\nQuantitative variables require different viz than categorical variables. Especially when there are many possible outcomes of the quantitative variable, it’s typically insufficient to simply count up the number of times we’ve observed a particular outcome (as the bar graph did above). It gives us a sense of ranges and typical outcomes, but not a good sense of how the observations are distributed across this range. We’ll explore two methods for graphing quantitative variables: histograms and density plots.\nHistograms are constructed by (1) dividing up the observed range of the variable into ‘bins’ of equal width; and (2) counting up the number of cases that fall into each bin. Check out the example below:\n\n\nPart a\nLet’s dig into some details.\n\nHow many hikes have an elevation between 4500 and 4700 feet? About 6 hikes\nHow many total hikes have an elevation of at least 5100 feet? About 2 hikes\n\n\n\nPart b\nNow the bigger picture. In general, histograms allow us to examine the following properties of a quantitative variable:\n\ntypical outcome: Where’s the center of the data points? What’s typical?\nvariability & range: How spread out are the outcomes? What are the max and min outcomes?\nshape: How are values distributed along the observed range? Is the distribution symmetric, right-skewed, left-skewed, bi-modal, or uniform (flat)?\noutliers: Are there any outliers, i.e. outcomes that are unusually large/small?\n\nWe must then translate this information into the context of our analysis, here hikes in the Adirondacks. Addressing each of the features in the above list, summarize here what you learned from the histogram, in context.\nMost hikes in this data set have an elevation from 4000ft to 4800ft. This data is right-skewed (uni modal). There don’t seem to be any extreme outliers. The data is not very spread out, and seems centered around 4400ft."
+  },
+  {
+    "objectID": "activities/data_viz.html#exercise-8-building-histograms-part-1",
+    "href": "activities/data_viz.html#exercise-8-building-histograms-part-1",
+    "title": "1  Data viz (Notes)",
+    "section": "Exercise 8: Building histograms (part 1)",
+    "text": "Exercise 8: Building histograms (part 1)\n2-MINUTE CHALLENGE: Thinking of the bar chart code, try to intuit what line you can tack on to the below frame of elevation to add a histogram layer. Don’t forget a +. If it doesn’t come to you within 2 minutes, no problem – all will be revealed in the next exercise.\n\nggplot(hikes, aes(x = elevation))+\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+  },
+  {
+    "objectID": "activities/data_viz.html#exercise-9-building-histograms-part-2",
+    "href": "activities/data_viz.html#exercise-9-building-histograms-part-2",
+    "title": "1  Data viz (Notes)",
+    "section": "Exercise 9: Building histograms (part 2)",
+    "text": "Exercise 9: Building histograms (part 2)\nLet’s build some histograms. Try each chunk below, one by one. In each chunk, make a comment about how both the code and the corresponding plot both changed.\n\n# COMMENT on the change in the code and the corresponding change in the plot\nggplot(hikes, aes(x = elevation)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n# Outlines are white \nggplot(hikes, aes(x = elevation)) +\n  geom_histogram(color = \"white\") \n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n# Bins are blue \nggplot(hikes, aes(x = elevation)) +\n  geom_histogram(color = \"white\", fill = \"blue\") \n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n# Bins are not blue anymore, and x and y labels have been added\nggplot(hikes, aes(x = elevation)) +\n  geom_histogram(color = \"white\") +\n  labs(x = \"Elevation (feet)\", y = \"Number of hikes\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n# Bin width increased, resulting in fewer bins \nggplot(hikes, aes(x = elevation)) +\n  geom_histogram(color = \"white\", binwidth = 1000) +\n  labs(x = \"Elevation (feet)\", y = \"Number of hikes\")\n\n\n\n\n\n# Bin width is now 5, so there are far more bins \nggplot(hikes, aes(x = elevation)) +\n  geom_histogram(color = \"white\", binwidth = 5) +\n  labs(x = \"Elevation (feet)\", y = \"Number of hikes\")\n\n\n\n\n\n# The bin width is now 200, which gives us the original histogram. \nggplot(hikes, aes(x = elevation)) +\n  geom_histogram(color = \"white\", binwidth = 200) +\n  labs(x = \"Elevation (feet)\", y = \"Number of hikes\")"
+  },
+  {
+    "objectID": "activities/data_viz.html#exercise-10-histogram-follow-up",
+    "href": "activities/data_viz.html#exercise-10-histogram-follow-up",
+    "title": "1  Data viz (Notes)",
+    "section": "Exercise 10: Histogram follow-up",
+    "text": "Exercise 10: Histogram follow-up\n\nWhat function added the histogram layer / geometry? geom_histogram()\nWhat’s the difference between color and fill? color outlines the bin and fill fills in the bins\nWhy does adding color = \"white\" improve the visualization? It tells us where the bins start and end.\nWhat did binwidth do? Changes the width of the bins\nWhy does the histogram become ineffective if the binwidth is too big (e.g. 1000 feet)? It does not give us enough information.\nWhy does the histogram become ineffective if the binwidth is too small (e.g. 5 feet)? It becomes a bar chart, and because this data is continuous, putting them into small bins is not helpful."
+  },
+  {
+    "objectID": "activities/data_viz.html#exercise-11-density-plots",
+    "href": "activities/data_viz.html#exercise-11-density-plots",
+    "title": "1  Data viz (Notes)",
+    "section": "Exercise 11: Density plots",
+    "text": "Exercise 11: Density plots\nDensity plots are essentially smooth versions of the histogram. Instead of sorting observations into discrete bins, the “density” of observations is calculated across the entire range of outcomes. The greater the number of observations, the greater the density! The density is then scaled so that the area under the density curve always equals 1 and the area under any fraction of the curve represents the fraction of cases that lie in that range.\nCheck out a density plot of elevation. Notice that the y-axis (density) has no contextual interpretation – it’s a relative measure. The higher the density, the more common are elevations in that range.\n\nggplot(hikes, aes(x = elevation)) +\n  geom_density()\n\n\n\n\nQuestions\n\nINTUITION CHECK: Before tweaking the code and thinking back to geom_bar() and geom_histogram(), how do you anticipate the following code will change the plot?\n\ngeom_density(color = \"blue\") The line (outline) will be blue\ngeom_density(fill = \"orange\") The area under the line will be orange\n\nTRY IT! Test out those lines in the chunk below. Was your intuition correct?\n\n\nggplot(hikes, aes(x = elevation)) +\n  geom_density(color= 'blue', fill='orange')\n\n\n\n\n\nExamine the density plot. How does it compare to the histogram? What does it tell you about the typical elevation, variability / range in elevations, and shape of the distribution of elevations within this range?\n\nIt tells us that the typical elevation was about 4125ft, and that the data was positively skewed."
+  },
+  {
+    "objectID": "activities/data_viz.html#exercise-12-density-plots-vs-histograms",
+    "href": "activities/data_viz.html#exercise-12-density-plots-vs-histograms",
+    "title": "1  Data viz (Notes)",
+    "section": "Exercise 12: Density plots vs histograms",
+    "text": "Exercise 12: Density plots vs histograms\nThe histogram and density plot both allow us to visualize the behavior of a quantitative variable: typical outcome, variability / range, shape, and outliers. What are the pros/cons of each? What do you like/not like about each?\nI like that histograms let you see how skewed the data is, as well as any possible outliers without you having to go through the data table. I like that density plots tell you the proportion of values in each range (bin). I don’t like density plots because I feel they are less intuitive."
+  },
+  {
+    "objectID": "activities/data_viz.html#exercise-13-code-communication",
+    "href": "activities/data_viz.html#exercise-13-code-communication",
+    "title": "1  Data viz (Notes)",
+    "section": "Exercise 13: Code = communication",
+    "text": "Exercise 13: Code = communication\nWe obviously won’t be done until we talk about communication. All code above has a similar general structure (where the details can change):\n\nggplot(___, aes(x = ___)) + \n  geom___(color = \"___\", fill = \"___\") + \n  labs(x = \"___\", y = \"___\")\n\n\nThough not necessary to the code working, it’s common, good practice to indent or tab the lines of code after the first line (counterexample below). Why?\n\nIt tells you that all the layers are part of the same line.\n\n# YUCK\nggplot(hikes, aes(x = elevation)) +\ngeom_histogram(color = \"white\", binwidth = 200) +\nlabs(x = \"Elevation (feet)\", y = \"Number of hikes\")\n\n\n\n\n\nThough not necessary to the code working, it’s common, good practice to put a line break after each + (counterexample below). Why? It is easier to read.\n\n\n# YUCK \nggplot(hikes, aes(x = elevation)) + geom_histogram(color = \"white\", binwidth = 200) + labs(x = \"Elevation (feet)\", y = \"Number of hikes\")"
+  },
+  {
+    "objectID": "activities/data_viz.html#exercise-14-practice",
+    "href": "activities/data_viz.html#exercise-14-practice",
+    "title": "1  Data viz (Notes)",
+    "section": "Exercise 14: Practice",
+    "text": "Exercise 14: Practice\n\nPart a\nPractice your viz skills to learn about some of the variables in one of the following datasets from the previous class:\n\n# Data on students in this class\nsurvey &lt;- read.csv(\"https://ajohns24.github.io/data/112/about_us_2024.csv\")\n\n# World Cup data\nworld_cup &lt;- read.csv(\"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-11-29/worldcups.csv\")\n\n\n#Brasil has won the most world cups \nggplot(world_cup, aes(x=winner))+\n  geom_bar()\n\n\n\n\n\nggplot(world_cup, aes(x=year, y=attendance))+ \n  geom_point()+\n  geom_smooth(method='lm')\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\nggplot(world_cup, aes(x=games, y=attendance))+\n  geom_point()+\n  geom_smooth(method='lm')\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\nPart b\nCheck out the RStudio Data Visualization cheat sheet to learn more features of ggplot."
   }
 ]

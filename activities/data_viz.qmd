@@ -38,6 +38,10 @@ library(ggplot2)
 ## Exercise 1: Research questions {.unnumbered}
 
 Let's dig into the `hikes` data, starting with the `elevation` and difficulty `ratings` of the hikes:
+```{r}
+hikes <- read.csv("https://mac-stat.github.io/data/high_peaks.csv")
+```
+
 
 ```{r}
 head(hikes)
@@ -361,8 +365,10 @@ ggplot(hikes, aes(x = elevation)) +
 
 -   INTUITION CHECK: Before tweaking the code and thinking back to `geom_bar()` and `geom_histogram()`, how do you *anticipate* the following code will change the plot?
 
-    -   `geom_density(color = "blue")` The line (outline) will be blue 
-    -   `geom_density(fill = "orange")` The area under the line will be orange 
+    -   `geom_density(color = "blue")` 
+The line (outline) will be blue 
+    -   `geom_density(fill = "orange")` 
+The area under the line will be orange 
 
 -   TRY IT! Test out those lines in the chunk below. Was your intuition correct?
 
@@ -384,6 +390,9 @@ It tells us that the typical elevation was about 4125ft, and that the data was p
 
 The histogram and density plot both allow us to visualize the behavior of a quantitative variable: typical outcome, variability / range, shape, and outliers. What are the pros/cons of each? What do you like/not like about each?
 
+I like that histograms let you see how skewed the data is, as well as any possible outliers without you having to go through the data table. 
+I like that density plots tell you the proportion of values in each range (bin). I don't like density plots because I feel they are less intuitive. 
+
 \
 \
 \
@@ -401,6 +410,8 @@ ggplot(___, aes(x = ___)) +
 
 -   Though not *necessary* to the code working, it's common, good practice to *indent* or *tab* the lines of code after the first line (counterexample below). Why?
 
+It tells you that all the layers are part of the same line. 
+
 ```{r}
 # YUCK
 ggplot(hikes, aes(x = elevation)) +
@@ -408,7 +419,7 @@ geom_histogram(color = "white", binwidth = 200) +
 labs(x = "Elevation (feet)", y = "Number of hikes")
 ```
 
--   Though not *necessary* to the code working, it's common, good practice to put a *line break* after each `+` (counterexample below). Why?
+-   Though not *necessary* to the code working, it's common, good practice to put a *line break* after each `+` (counterexample below). Why? It is easier to read. 
 
 ```{r}
 # YUCK 
@@ -428,11 +439,28 @@ Practice your viz skills to learn about some of the variables in one of the foll
 
 ```{r}
 # Data on students in this class
-survey <- read.csv("https://mac-stat.github.io/data/112/about_us_2024.csv")
+survey <- read.csv("https://ajohns24.github.io/data/112/about_us_2024.csv")
 
 # World Cup data
 world_cup <- read.csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-11-29/worldcups.csv")
 ```
+
+```{r}
+#Brasil has won the most world cups 
+ggplot(world_cup, aes(x=winner))+
+  geom_bar()
+```
+```{r}
+ggplot(world_cup, aes(x=year, y=attendance))+ 
+  geom_point()+
+  geom_smooth(method='lm')
+```
+```{r}
+ggplot(world_cup, aes(x=games, y=attendance))+
+  geom_point()+
+  geom_smooth(method='lm')
+```
+
 
 ### Part b {.unnumbered}
 
