@@ -15,13 +15,13 @@ book:
       chapters: 
       - activities/data_viz.qmd
       - activities/bivariate_viz.qmd
-      - activities/activity-03.qmd
     
     - part: notes/README.qmd
       chapters: 
       - notes/Chapter-2.qmd
       - notes/Chapter-3.qmd
       - notes/Chapter-4.qmd
+      - notes/Chapter-5.qmd
 
 format:
   html:
