@@ -50,7 +50,8 @@ ggplot(elections, aes(y = repub_pct_20, x = repub_pct_16)) +
 
 ## Exercise 3: {.unnumbered} 
 
-With an increase in republican percentage in 2016, there is an increase in republican percentage in 2020. This relationship is very strong, and it is a positive relationship. A lot of counties in Texas seem to lie above the trend (positive residuals), which could be because they are more republican than the average state. 
+With an increase in republican percentage in 2016, there is an increase in republican percentage in 2020. This relationship is very strong, and it is a positive relationship. A lot of counties in Texas seem to lie above the trend (positive residuals), which could be because they are more republican than the average state.
+
 
 ## Exercise 4: {.unnumbered} : 
 ```{r}
@@ -104,6 +105,7 @@ This tells us that if a county was historically democrat, people voted less repu
 ggplot(elections, aes(x = repub_pct_20, fill=historical)) +
   geom_density(alpha=0.5)
 ```
+
 
 ## Exercise 9: {.unnumbered} : 
 
