@@ -10,7 +10,7 @@ library(dplyr)
 ```
 
 
-Exercise 0: 
+## Exercise 0: {.unnumbered} 
 ```{r}
 # Load data
 elections <- read.csv("https://mac-stat.github.io/data/election_2020_county.csv")
@@ -33,13 +33,13 @@ ggplot(elections, aes(x=repub_pct_20))+
 I don't understand the significance of this being negatively skewed. 
 
 
-Exercise 1: 
+## Exercise 1: {.unnumbered} 
 ```{r}
 ggplot(elections, aes(x=repub_pct_16, y=repub_pct_20))+ 
   geom_point()
 ```
  
-Exercise 2: 
+## Exercise 2: {.unnumbered} 
 
 ```{r}
 # This shows the same plot as above in exercise 2, but with crosses. 
@@ -48,11 +48,11 @@ ggplot(elections, aes(y = repub_pct_20, x = repub_pct_16)) +
   geom_text(aes(label = state_abbr))
 ```
 
-Exercise 3: 
+## Exercise 3: {.unnumbered} 
 
-With an increase in republican percentage in 2016, there is an increase in republican percentage in 2020. This relationship is very strong, and it is a positive relationship. A lot of counties in texas seem to lie above the trend (positive residuals), which could be because they are more republican than the average state. 
+With an increase in republican percentage in 2016, there is an increase in republican percentage in 2020. This relationship is very strong, and it is a positive relationship. A lot of counties in Texas seem to lie above the trend (positive residuals), which could be because they are more republican than the average state. 
 
-Exercise 4: 
+## Exercise 4: {.unnumbered} : 
 ```{r}
 ggplot(elections, aes(y = repub_pct_20, x = repub_pct_16)) +
   geom_smooth()
@@ -77,7 +77,7 @@ ggplot(elections, aes(x = median_age, y = repub_pct_20)) +
 
 Median rent seems to explain repub_pct_20 better: as median rent rises, repub_pct_20 seems to fall, suggesting a moderate negative relationship. Median age does not seem to explain repub_pct_20 very well. 
 
-Exercise 6: 
+## Exercise 6: {.unnumbered} 
 
 ```{r}
 ggplot(elections, aes(y = repub_pct_20, x = historical)) +
@@ -85,7 +85,7 @@ ggplot(elections, aes(y = repub_pct_20, x = historical)) +
 ```
 A scatterplot is very useful for 2 quantitative variables. Historical seems to be a categorical variable with 3 categories, so a boxplot would be a better idea. 
 
-Exercise 7: 
+## Exercise 7: {.unnumbered} 
 
 ```{r}
 ggplot(elections, aes(y = repub_pct_20, x = historical)) +
@@ -98,14 +98,14 @@ ggplot(elections, aes(y = repub_pct_20, x = historical)) +
 ```
 This tells us that if a county was historically democrat, people voted less republican in 2020 than if the country was historically purple, which is less than if the county was historically red. 
 
-Exercise 8: 
+## Exercise 8: {.unnumbered} 
 
 ```{r}
 ggplot(elections, aes(x = repub_pct_20, fill=historical)) +
   geom_density(alpha=0.5)
 ```
 
-Exercise 9: 
+## Exercise 9: {.unnumbered} : 
 
 ```{r}
 # Name two "bad" things about this plot
@@ -148,9 +148,9 @@ ggplot(elections, aes(x = repub_pct_20, fill = historical)) +
   geom_histogram(color = "white") +
   scale_fill_manual(values = c("blue", "purple", "red"))
 ```
-This uses a histogram, which is difficult to understand because there is so much information!
+This uses a histogram, which is difficult to understand because there is so much information. 
 
-Exercise 10: 
+## Exercise 10: {.unnumbered}  
 
 - Which do you like best?
 Side-by-side boxplots
@@ -158,3 +158,76 @@ Side-by-side boxplots
 It gives you a visual representation of how skewed the data is
 - What is one con of density plots relative to boxplots?
 It does not give you any numerical summaries (IQR, median)
+
+## Exercise 11: {.unnumbered} 
+
+```{r}
+ggplot(elections, aes(x=historical, fill=winner_20))+
+  geom_bar()
+```
+```{r}
+ggplot(elections, aes(x=winner_20, fill=historical))+
+  geom_bar()+
+  scale_fill_manual(values = c("blue", "purple", "red"))+
+  facet_wrap(~ historical)
+```
+
+## Exercise 12: {.unnumbered} 
+
+```{r}
+# A stacked bar plot
+# How are the "historical" and "winner_20" variables mapped to the plot, i.e. what roles do they play?
+ggplot(elections, aes(x = historical, fill = winner_20)) +
+  geom_bar()
+```
+```{r}
+# A faceted bar plot
+ggplot(elections, aes(x = winner_20)) +
+  geom_bar() +
+  facet_wrap(~ historical)
+```
+
+```{r}
+# A side-by-side bar plot
+# Note the new argument to geom_bar
+ggplot(elections, aes(x = historical, fill = winner_20)) +
+  geom_bar(position = "dodge")
+```
+
+```{r}
+# A proportional bar plot
+# Note the new argument to geom_bar
+ggplot(elections, aes(x = historical, fill = winner_20)) +
+  geom_bar(position = "fill")
+```
+Part a: An advantage to using a proportional bar chart is that it gives us a proportion of the numbers who voted democrat or republican within each historical category, instead of the raw number. A disadvantage to using a proportional bar chart is that you don't know the raw count of the people who voted democrat or republican within each category- we loose data, because we don't know which category voted most frequently, just the proportion with which they voted. 
+
+Part b: I like side-by-side bar charts (the third graph) because it is easy to follow and understand, the categories are grouped together, and I can see the raw count of votes for each party. 
+
+## Exercise 13: {.unnumbered} 
+
+```{r}
+weather <- read.csv("https://mac-stat.github.io/data/weather_3_locations.csv")
+```
+
+```{r}
+# How do 3pm temperatures (temp3pm) differ by location?
+ggplot(weather, aes(x=location, y=temp3pm))+ 
+  geom_boxplot()
+```
+The location variable is categorical: there are 3 categories. The temp3pm variable is quantitative. Hence, a boxplot or violin plot would be best at representing this data. 
+
+```{r}
+# How might we predict the 3pm temperature (temp3pm) by the 9am temperature (temp9am)?
+ggplot(weather, aes(x=temp9am, y=temp3pm))+
+  geom_point()+
+  geom_smooth()
+```
+Both of these variables are quantitative, so a scatterplot would be best 
+
+```{r}
+# How do the number of rainy days (raintoday) differ by location?
+ggplot(weather, aes(x=location, fill=raintoday))+ 
+  geom_bar()
+```
+Both are categorical variables. 
