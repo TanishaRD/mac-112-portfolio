@@ -1,0 +1,187 @@
+---
+title: "Multivariate Viz"
+number-sections: true
+execute: 
+  warning: false
+fig-height: 2.75
+fig-width: 4.25
+fig-env: 'figure'
+fig-pos: 'h'
+fig-align: center
+code-fold: false
+---
+
+```{r}
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+```
+
+
+### The story {-}
+
+Though far from a perfect assessment of academic preparedness, SAT scores have historically been used as one measurement of a state's education system. The `education` dataset contains various education variables for each state:
+
+```{r}
+# Import and check out data
+education <- read.csv("https://mac-stat.github.io/data/sat.csv")
+head(education)
+```
+
+A codebook is provided by Danny Kaplan who also made these data accessible:
+
+![](https://mac-stat.github.io/images/112/SATcodebook.png)
+
+
+### Exercise 1: SAT scores {-}
+
+#### Part a {-}
+
+Construct a plot of how the average `sat` scores vary from state to state. (Just use 1 variable -- `sat` not `State`!)
+
+```{r}
+ggplot(education, aes(x=sat))+
+  geom_histogram(bindwidth=20)
+```
+
+#### Part b {-}
+
+Summarize your observations from the plot. Comment on the basics: range, typical outcomes, shape. (Any theories about what might explain this non-normal shape?)
+
+The average SAT score ranges from 800 to 1150. The data seems to be unimodal, with the mode at about 890. The data is positively skewed. 
+
+
+### Exercise 2: SAT Scores vs Per Pupil Spending & SAT Scores vs Salaries {-}
+
+The first question we'd like to answer is: Can the variability in `sat` scores from state to state be partially explained by how much a state spends on education, specifically its per pupil spending (`expend`) and typical teacher `salary`?
+
+#### Part a {-}
+
+```{r}
+# Construct a plot of sat vs expend
+ggplot(education, aes(x=expend, y=sat))+
+  geom_point()+
+  geom_smooth(method='lm')
+
+```
+
+```{r}
+# Construct a plot of sat vs salary
+ggplot(education, aes(x=salary, y=sat))+
+  geom_point()+
+  geom_smooth(method='lm')
+
+```
+
+#### Part b {-}
+
+What are the relationship trends between SAT scores and spending? Is there anything that surprises you?
+
+It is surprising: as expenditure per pupil increase, the average sat score seems to reduce. 
+
+
+### Exercise 3: SAT Scores vs Per Pupil Spending *and* Teacher Salaries {-}
+
+Construct *one* visualization of the relationship of `sat` with `salary` *and* `expend`. HINT: Start with just 2 variables and tweak that code to add the third variable. Try out a few things!
+
+```{r}
+ggplot(education, aes(x=expend, y=sat, color=salary))+
+  geom_point()
+```
+
+
+
+### Exercise 4: Another way to Incorporate Scale {-}
+
+It can be tough to distinguish color scales and size scales for quantitative variables. Another option is to *discretize* a quantitative variable, or basically cut it up into *categories*.
+
+Construct the plot below. Check out the code and think about what's happening here. What happens if you change "2" to "3"?
+
+```{r eval = FALSE}
+ggplot(education, aes(y = sat, x = salary, color = cut(expend, 2))) + 
+  geom_point() + 
+  geom_smooth(se = FALSE, method = "lm")
+```
+It cuts into 3 parts if you change 2 to 3: the general syntax for cut is cut(var_to_cut, number_of_cuts)
+
+
+Describe the trivariate relationship between `sat`, `salary`, and `expend`.
+
+With an increase in teacher salary, the expenditure per student also increases. As these two explanatory variables increase, the SAT score decreases: first steeply, and then more gradually. 
+
+
+### Exercise 5: Finally an Explanation {-}
+
+It's strange that SAT scores *seem* to decrease with spending. But we're leaving out an important variable from our analysis: the fraction of a state's students that actually take the SAT. The `fracCat` variable indicates this fraction: `low` (under 15% take the SAT), `medium` (15-45% take the SAT), and `high` (at least 45% take the SAT).
+
+#### Part a {-}
+
+Build a univariate viz of `fracCat` to better understand how many states fall into each category.
+
+```{r}
+ggplot(education, aes(x=fracCat))+
+  geom_bar()
+```
+
+The number of states that fall into the category of 15% or less students take the SAT is about 21. The number of states that fall into the category of 15% to 45% of students take the SAT is about 7. The number of states that fall into the category of 45% to 100% of  students take the SAT is about 22. 
+
+#### Part b {-}
+
+Build 2 bivariate visualizations that demonstrate the relationship between `sat` and `fracCat`. What story does your graphic tell and why does this make contextual sense?
+
+```{r}
+ggplot(education, aes(x=fracCat, y=sat))+
+  geom_boxplot()
+```
+When the fraction of students that take the sat is lesser, the median average SAT score is higher. 
+
+
+#### Part c {-}
+
+Make a trivariate visualization that demonstrates the relationship of `sat` with `expend` AND `fracCat`. Highlight the differences in `fracCat` groups through color AND unique trend lines. What story does your graphic tell?\
+Does it still seem that SAT scores decrease as spending increases?
+
+```{r}
+```
+
+#### Part d {-}
+
+Putting all of this together, explain this example of **Simpson’s Paradox**. That is, why did it appear that SAT scores decrease as spending increases even though the *opposite* is true?
+
+
+### Exercise 5: Finally an Explanation {-}
+
+#### Part a {-}
+
+```{r}
+ggplot(education, aes(x = fracCat)) + 
+  geom_bar()
+```
+
+#### Part b {-}
+
+The more students in a state that take the SAT, the lower the average scores tend to be. This is probably related to self-selection.
+
+```{r}
+ggplot(education, aes(x = sat, fill = fracCat)) + 
+  geom_density(alpha = 0.5)
+```
+
+#### Part c {-}
+
+When we control for the fraction of students that take the SAT, SAT scores *increase* with expenditure.
+
+```{r}
+ggplot(education, aes(y = sat, x = expend, color = fracCat)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+Thus, fracCat seems to be a confounding variable that conforms to Simpson's paradox (switch the relationship between expend and sat). 
+
+#### Part d {-}
+
+Student participation tends to be lower among states with lower expenditures (which are likely also the states with higher ed institutions that haven't historically required the SAT). Those same states tend to have higher SAT scores because of the self-selection of who participates.
+
+
+</details>
