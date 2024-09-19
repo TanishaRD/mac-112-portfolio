@@ -1,0 +1,20 @@
+---
+title: 'Chapter 6'
+--- 
+Spatial visualizations can be: 
+
+1. Choropleth maps 
+
+2. Point maps 
+
+3. Contour maps 
+
+They can be dynamic or static. 
+
+2 important pieces of information we need: 
+
+1. A dataset that includes either location coordinates for your points of interest (point map) or variable outcomes for your regions of interest (choropleth maps)
+
+2. A background map 
+
+You would use a JavaScript package that can be imported using leaflet in R. 

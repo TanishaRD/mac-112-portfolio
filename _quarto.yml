@@ -23,6 +23,7 @@ book:
       - notes/Chapter-3.qmd
       - notes/Chapter-4.qmd
       - notes/Chapter-5.qmd
+      - notes/Chapter-6.qmd
 
 format:
   html:
