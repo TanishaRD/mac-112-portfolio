@@ -1,0 +1,20 @@
+---
+title: 'Chapter 7'
+--- 
+
+Types of ineffective visualizations: 
+
+1. ugly: the aesthetics are not nice, but the data is all technically correct 
+
+2. bad: the graph is overly confusing or complex
+
+3. wrong: the visualization is objectively correct, but the numbers/trends are not represented correctly 
+
+Parts of an effective visualization: 
+
+1. professionalism: labelled axes, captions, and a tile 
+
+2. acessibility: alt text, color-blind accessible pallette
+
+3. ethics: make sure your data is collected and displayed ethically (is not purposefully misleading)
+

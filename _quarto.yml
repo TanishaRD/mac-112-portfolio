@@ -16,6 +16,7 @@ book:
       - activities/data_viz.qmd
       - activities/bivariate_viz.qmd
       - activities/multivariate_viz.qmd
+      - activities/spatial_viz.qmd
     
     - part: notes/README.qmd
       chapters: 
@@ -24,6 +25,7 @@ book:
       - notes/Chapter-4.qmd
       - notes/Chapter-5.qmd
       - notes/Chapter-6.qmd
+      - notes/Chapter-7.qmd
 
 format:
   html:
