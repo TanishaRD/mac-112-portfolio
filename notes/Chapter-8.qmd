@@ -1,0 +1,36 @@
+---
+title: 'Chapter 8'
+--- 
+
+Use the tidyverse package to wrangle data 
+
+Each function acts on a data frame and returns a data frame: 
+
+- arrange: arrange the rows according to some column
+- filter: filter out or obtain a subset of the rows
+- select: select a subset of columns 
+- mutate: create a new column 
+- summarize: create a numerical summary of a column 
+- group_by: group the rows by a specific column 
+
+Which verb would help us…
+
+1. Keep only information about state names, county names, and the 2020 and 2016 Democratic support (not the 2012 results, demographics, etc): **select** 
+
+2. Get only the data on Minnesota: **filter** 
+
+3. Define a new variable which calculates the change in Democratic support from 2016 to 2020, using dem_pct_20 and dem_pct_16: **mutate** 
+
+4. Sort the counties from highest to lowest Democratic support: **arrange** 
+
+5. Determine the total number of votes cast across all counties: **summarize* 
+
+Structure of a few function: 
+
+1. Select: select(elections, c(state_name, county_name, dem_pct_20, dem_pct_16))
+
+2. Filter: filter(elections, state_name == "Minnesota")
+
+Select always goes before filter! 
+
+

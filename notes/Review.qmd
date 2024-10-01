@@ -1,0 +1,59 @@
+---
+title: 'Review for Exam 1' 
+---
+
+First steps: 
+
+- Read in the data
+
+- look at str and dim 
+
+Why visualize data: 
+
+- trends 
+
+- distribution
+
+- outliers 
+
+Why visualize 1 variable? 
+
+To look at its distribution 
+	
+Why visualize more than 1 variable? 
+
+To look at relationships 
+	
+Maximum number of categorical variables you can visualize in one plot? 
+
+3: You can use a stacked/proportional bar chart with facets 
+	
+Maximum number of numerical variables you can visualize in one plot? 
+
+7: You can use a scatterplot, and add color for the third, and size for the fourth, add shape for the fifth, turn numerical into categorical and use facets for the sixth, use 3D for the seventh 
+	
+Maximum number of numerical and categorical variables you can visualize in one plot? 
+
+1 cat and 2 num: 1 scatterplot with color for the cat 
+	
+2 cat and 1 num: 
+	
+How to make a plot more effective? 
+
+- Alternative text 
+	
+- Everything you put on the graph has to have a purpose
+	
+- Choose the correct type of plot
+	
+- Make sure the data is CORRECT 
+	
+- Axes labels + titles + captions (source) + legend 
+	
+- Ethical data visualization (not misleading) 
+	
+- Use colors that have high contrast + are colorblind-friendly 
+	
+For spatial data, longitude goes on the x-axis, and latitude goes on the y-axis 
+
+A column chart is used when you already have count 

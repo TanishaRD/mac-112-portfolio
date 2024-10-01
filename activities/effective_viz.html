@@ -155,19 +155,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exercise-2-accessibility" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="exercise-2-accessibility">Exercise 2: Accessibility</h3>
 <p>Let’s now make a graphic more accessible.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(weather, <span class="fu">aes</span>(<span class="at">x =</span> temp3pm, <span class="at">fill =</span> location)) <span class="sc">+</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"3pm temperature (Celsius)"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="effective_viz_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" alt="???" width="408"></p>
-<figcaption class="figure-caption">Density plots of 3pm temperatures in 3 Australian locations.</figcaption>
-</figure>
-</div>
-</div>
-</div>
 <section id="part-a-1" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="part-a-1">Part a</h4>
 <p>Let’s add some alt text that can be picked up by screen readers. This is a <a href="https://medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81">great resource on writing alt text for data viz</a>. In short, whereas figure captions are quick descriptions which assume that the viz is accessible, alt text is a longer description which assumes the viz is not accessible. Alt text should concisely articulate:</p>
@@ -178,13 +165,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Add appropriate alt text at the top of the chunk, in <code>fig-alt</code>. Then knit your Rmd, and hover over the image in your knitted html file to check out the alt text.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(weather, <span class="fu">aes</span>(<span class="at">x =</span> temp3pm, <span class="at">fill =</span> location)) <span class="sc">+</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"3pm temperature (Celsius)"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(weather, <span class="fu">aes</span>(<span class="at">x =</span> temp3pm, <span class="at">fill =</span> location)) <span class="sc">+</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"3pm temperature (Celsius)"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="effective_viz_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" alt="This is a density plot of 3pm temperatures in Celcius in Hobart, Uluru, and Wollongong, Australia. Wallongong is most frequently the location with the highest temperature at 3pm, followed by Hobart, and then the Uluru. Link: ____" width="408"></p>
+<p><img src="effective_viz_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" alt="This is a density plot of 3pm temperatures in Celcius in Hobart, Uluru, and Wollongong, Australia. Wallongong is most frequently the location with the highest temperature at 3pm, followed by Hobart, and then the Uluru. Link: ____" width="408"></p>
 <figcaption class="figure-caption">Density plots of 3pm temperatures in 3 Australian locations.</figcaption>
 </figure>
 </div>
@@ -213,24 +200,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="unnumbered anchored" data-anchor-id="part-c">Part c</h4>
 <p>We can change our color schemes! There are many <a href="https://cran.r-project.org/web/packages/colorBlindness/vignettes/colorBlindness.html">color-blind friendly palettes in R</a>. In the future, we’ll set a default, more color-blind friendly color theme at the top of our Rmds. We can also do this individually for any plot that uses color. Run the chunks below to explore various options.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(weather, <span class="fu">aes</span>(<span class="at">x =</span> temp3pm, <span class="at">fill =</span> location)) <span class="sc">+</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"3pm temperature (Celsius)"</span>) <span class="sc">+</span> </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(weather, <span class="fu">aes</span>(<span class="at">x =</span> temp3pm, <span class="at">fill =</span> location)) <span class="sc">+</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"3pm temperature (Celsius)"</span>) <span class="sc">+</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="effective_viz_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="408"></p>
+<p><img src="effective_viz_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="408"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In the color scale line:</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Change "fill" to "color" since we use color in the aes()</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Change "d" (discrete) to "c" (continuous) since maxtemp is on a continuous scale</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(weather, <span class="fu">aes</span>(<span class="at">y =</span> temp3pm, <span class="at">x =</span> temp9am, <span class="at">color =</span> maxtemp)) <span class="sc">+</span> </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"3pm temperature (Celsius)"</span>) <span class="sc">+</span> </span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In the color scale line:</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Change "fill" to "color" since we use color in the aes()</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Change "d" (discrete) to "c" (continuous) since maxtemp is on a continuous scale</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(weather, <span class="fu">aes</span>(<span class="at">y =</span> temp3pm, <span class="at">x =</span> temp9am, <span class="at">color =</span> maxtemp)) <span class="sc">+</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"3pm temperature (Celsius)"</span>) <span class="sc">+</span> </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="effective_viz_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="408"></p>
+<p><img src="effective_viz_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="408"></p>
 </div>
 </div>
 <p><br>
