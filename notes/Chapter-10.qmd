@@ -1,0 +1,20 @@
+---
+title: 'Chapter 10' 
+--- 
+
+Types of reshaped data: 
+
+- Aggregate data: for example, using group_by() with summarize() gains aggregate information about our observations but loses data on individual observations.
+
+- Raw data, reshaped: we often want to retain all information on individual observations, but need to reshape it in order to perform the task at hand.
+
+To change the format: 
+
+pivot_wider: It will increase the number of columns based on the categorical variable chosen. Example: 
+
+pivor_wider(table, names_from=cat_var, values_from=quant/cat var)
+
+pivot longer: It will increase the number of rows based on the columns chosen. Example: 
+
+pivot_longer(table, cols=1:4, names_to=var, values_to=var)
+

@@ -1,0 +1,36 @@
+---
+title: 'Chapter 9'
+---
+
+A way to count the number of data points in a group is by count(groups). 
+
+Interpreting this: 
+
+penguins %>% 
+  filter(species == 'Chinstrap') %>% 
+  group_by(sex) %>% 
+  summarize(min = min(body_mass_g), max = max(body_mass_g)) %>% 
+  mutate(range = max - min)
+
+
+This takes the dataset penguins, and only uses chinstrap penguins. All chinstrap penguins are stratified by sex. For each sex, the minimum and maximum body mass is calculated. This is then piped to create a new column, in which the range of body mass is printed. This prints all the range, min, and max for female and male chinstrap penguins. 
+
+penguins %>% 
+is.na()%>%
+row$sum()%>%
+table() 
+
+this gives us a table: the bottom row is how many rows, and the top row has how many values are na
+
+penguins %>% 
+is.na()%>%
+col$sum()%>%
+table() 
+
+this does the same, except the bottom row is how many columns, and the top row has how many values are na in those many columns. eg:
+
+0 2 11
+
+3 4   1
+
+There are 3 columns with no na values, 4 columns with 2 na values, and 1 column with 11 na values. 

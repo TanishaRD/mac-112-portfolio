@@ -28,6 +28,8 @@ book:
       - notes/Chapter-7.qmd
       - notes/Review.qmd 
       - notes/Chapter-8.qmd
+      - notes/Chapter-9.qmd
+      - notes/Chapter-10.qmd
 
 format:
   html:
