@@ -17,6 +17,10 @@ book:
       - activities/bivariate_viz.qmd
       - activities/multivariate_viz.qmd
       - activities/spatial_viz.qmd
+      - activities/effective_viz.qmd
+      - activities/wrangling_functions.qmd
+      - activities/Wrangling_practice.qmd
+      - activities/Reshaping_data.qmd
     
     - part: notes/README.qmd
       chapters: 
