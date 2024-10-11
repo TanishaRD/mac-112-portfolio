@@ -21,6 +21,7 @@ book:
       - activities/wrangling_functions.qmd
       - activities/Wrangling_practice.qmd
       - activities/Reshaping_data.qmd
+      - activities/Joining_data.qmd
     
     - part: notes/README.qmd
       chapters: 
@@ -34,6 +35,7 @@ book:
       - notes/Chapter-8.qmd
       - notes/Chapter-9.qmd
       - notes/Chapter-10.qmd
+      - notes/Chapter-11.qmd
 
 format:
   html:

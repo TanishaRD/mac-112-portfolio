@@ -1,0 +1,18 @@
+---
+title: 'Chapter 11' 
+--- 
+
+Types of joins: 
+
+Joins based on the key!
+
+- left join: keeps everything from the left and merges it with the table from the right 
+
+- inner join: keeps everything the right and left tables have in common 
+
+- full join: keeps all data from the left and right 
+
+- anti join: discards any observations in the left table that do have a match in the right table
+
+- semi join: discards any observations in the left table that do not have a match in the right table
+
