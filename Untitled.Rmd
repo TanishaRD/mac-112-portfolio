@@ -1,0 +1,21 @@
+---
+title: "random1"
+author: "Tanisha"
+date: "2024-10-11"
+output: html_document
+---
+
+```{r}
+
+library(tidyverse)
+winners_23 <- data.frame(
+  runner = c("cheskis", "moses", "zhang"),
+  time_23 = c(67, 54, 50),
+  age_bracket= c('18-39', '60+', '40-59')
+)
+
+winners_24 <- data.frame(
+  runner = c( "aanonsen", "cheskis", "moses"),
+  time_24 = c(59, 66, 55)
+)
+```

@@ -505,124 +505,157 @@
     ]
   },
   {
+    "objectID": "activities/factors.html",
+    "href": "activities/factors.html",
+    "title": "10  Factors",
+    "section": "",
+    "text": "10.1 Exercises\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(ggplot2)\nThe exercises revisit our grades data:\nsid grade   sessionID\n1 S31185    D+ session1784\n2 S31185    B+ session1785\n3 S31185    A- session1791\n4 S31185    B+ session1792\n5 S31185    B- session1794\n6 S31185    C+ session1795\nWe’ll explore the number of times each grade was assigned:\ngrade_distribution &lt;- grades |&gt; \n  count(grade)\n\nhead(grade_distribution)\n\n  grade    n\n1     A 1506\n2    A- 1381\n3    AU   27\n4     B  804\n5    B+ 1003\n6    B-  330",
+    "crumbs": [
+      "Activities",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Factors</span>"
+    ]
+  },
+  {
+    "objectID": "activities/factors.html#exercises",
+    "href": "activities/factors.html#exercises",
+    "title": "10  Factors",
+    "section": "",
+    "text": "Exercise 1: Changing the order (option 1)\nCheck out a column plot of the number of times each grade was assigned during the study period. This is similar to a bar plot, but where we define the height of a bar according to variable in our dataset.\n\ngrade_distribution |&gt; \n  ggplot(aes(x = grade, y = n)) +\n    geom_col()\n\n\n\n\n\n\n\n\nThe order of the grades is goofy! Construct a new column plot, manually reordering the grades from high (A) to low (NC) with “S” and “AU” at the end:\n\n grade_distribution |&gt;\n   mutate(grade = fct_relevel(grade, c(\"A\", \"A-\", \"B+\", \"B\", \"B-\", \"C+\", \"C\", \"C-\", \"D+\", \"D\", \"D-\", \"NC\", \"S\", \"AU\"))) |&gt;\n   ggplot(aes(x = grade, y = n)) +\n     geom_col()\n\n\n\n\n\n\n\n\nConstruct a new column plot, reordering the grades in ascending frequency (i.e. how often the grades were assigned):\n\n#To reverse this, use fct_reorder(grade, n, .desc=TRUE)\n grade_distribution |&gt;\n   mutate(grade = fct_reorder(grade,n)) |&gt;\n   ggplot(aes(x = grade, y = n)) +\n    geom_col()\n\n\n\n\n\n\n\n\nConstruct a new column plot, reordering the grades in descending frequency (i.e. how often the grades were assigned):\n\n grade_distribution |&gt;\n   mutate(grade = fct_infreq(grade, n)) |&gt;\n   ggplot(aes(x = grade, y = n)) +\n    geom_col()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExercise 2: Changing factor level labels\nIt may not be clear what “AU” and “S” stand for. Construct a new column plot that renames these levels “Audit” and “Satisfactory”, while keeping the other grade labels the same and in a meaningful order:\n\n#For re-code, put the new name=old name\ngrade_distribution |&gt;\n  mutate(grade = fct_relevel(grade, c(\"A\", \"A-\", \"B+\", \"B\", \"B-\", \"C+\", \"C\", \"C-\", \"D+\", \"D\", \"D-\", \"NC\", \"S\", \"AU\"))) |&gt;\n  mutate(grade = fct_recode(grade, 'Audit'= 'A','Satisfactory'='S')) |&gt;  # Multiple pieces go into the last 2 blanks\n  ggplot(aes(x = grade, y = n)) +\n    geom_col()",
+    "crumbs": [
+      "Activities",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Factors</span>"
+    ]
+  },
+  {
     "objectID": "notes/Chapter-2.html",
     "href": "notes/Chapter-2.html",
-    "title": "10  Chapter 2",
+    "title": "11  Chapter 2",
     "section": "",
     "text": "Quarto knits to a qmd and it makes documents far prettier than just knitting to an rmd. Quarto is the newest version of Rmarkdown\nQuarto supports multiple languages (python, Javascript, Julia, R)\nDon’t use the console unless you are doing calculations and looking for help\nTo make something bold use two ** surrounding the phrase.\nTo italicize something, use one * around the phrase (or _ around)\nMake sure to space out your code and comment your R-chunks\nCamelCase is like this thisVariableCapitalizesTheFirstLetterExceptTheFirst\nSnake case is like this this_is_snake_case\nwordsOnTheScreen is used to link to an image",
     "crumbs": [
       "Notes",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Chapter 2</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Chapter 2</span>"
     ]
   },
   {
     "objectID": "notes/Chapter-3.html",
     "href": "notes/Chapter-3.html",
-    "title": "11  Chapter 3",
+    "title": "12  Chapter 3",
     "section": "",
     "text": "Data visualization lets you find outliers, look at the shape of the data, and identify trends. Keep in mind when creating a graphic:\n\nAxes variables and names\nColors & Themes: make is accessibility friendly\nFacets\nScale + floating axes\nLayers: how many lines, points, bars\n\nTo do this in R, we use the package ggplot2.",
     "crumbs": [
       "Notes",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Chapter 3</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Chapter 3</span>"
     ]
   },
   {
     "objectID": "notes/Chapter-4.html",
     "href": "notes/Chapter-4.html",
-    "title": "12  Chapter 4",
+    "title": "13  Chapter 4",
     "section": "",
     "text": "Bivariate visualizations look at relationships between variables. You look at the effect of the predictor (x) variables on the response (y) variable. You can use these visualizations to find:\n\nTrends\nStrength of correlation\nOutliers\n\nBasic notes:\n\nEvery quantitative variable needs a new axis\nEvery categorical variable needs a new way to group (color, facet, shapes, etc.)\nIf you have overlapping lines, play with alpha (transparency) and facets",
     "crumbs": [
       "Notes",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Chapter 4</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Chapter 4</span>"
     ]
   },
   {
     "objectID": "notes/Chapter-5.html",
     "href": "notes/Chapter-5.html",
-    "title": "13  Chapter 5",
+    "title": "14  Chapter 5",
     "section": "",
     "text": "library(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ forcats   1.0.0     ✔ readr     2.1.5\n✔ ggplot2   3.4.4     ✔ stringr   1.5.1\n✔ lubridate 1.9.3     ✔ tibble    3.2.1\n✔ purrr     1.0.2     ✔ tidyr     1.3.1\n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(ggplot2)\n\n\nweather &lt;- read.csv(\"https://mac-stat.github.io/data/weather_3_locations.csv\") %&gt;% \n  mutate(date = as.Date(date)) \n\nTo make a stacked bar chart:\n\nwoll &lt;- weather %&gt;%\n  filter(location == \"Wollongong\") %&gt;% \n  mutate(date = as.Date(date))  \n\n\n# Default: stacked bars\nggplot(woll, aes(x = raintoday, fill = raintomorrow)) + \n  geom_bar()\n\n\n\n\n\n\n\n\nTo make side-by-side bar charts:\n\n# Side-by-side bars\nggplot(woll, aes(x = raintoday, fill = raintomorrow)) + \n  geom_bar(position = \"dodge\")\n\n\n\n\n\n\n\n\nProportional bar charts:\n\n# Proportional bars\n# position = \"fill\" refers to filling the frame, nothing to do with the color-related fill\nggplot(woll, aes(x = raintoday, fill = raintomorrow)) + \n  geom_bar(position = \"fill\")\n\n\n\n\n\n\n\n\nTo visualize 3 variables:\n\nPlay with alpha\nPlay with colors\nPlay with facets\nAdd an axis\n\nIf you have 3 variables, how do you represent: - 3 categorical variables: Use a stacked bar chart with color, with facets - 2 categorical and 1 numerical: Use a stacked density plot with color, with facets (or histogram, density, violin) - 2 numerical and 1 categorical: Use a scatterplot with color or facets (categorical) (or heatmap or star) - 3 numerical: Use a scatterplot with a discrete/ binned version of the 3rd numerical variable and change the color, shape, size, or transparency",
     "crumbs": [
       "Notes",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Chapter 5</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Chapter 5</span>"
     ]
   },
   {
     "objectID": "notes/Chapter-6.html",
     "href": "notes/Chapter-6.html",
-    "title": "14  Chapter 6",
+    "title": "15  Chapter 6",
     "section": "",
     "text": "Spatial visualizations can be:\n\nChoropleth maps\nPoint maps\nContour maps\n\nThey can be dynamic or static.\n2 important pieces of information we need:\n\nA dataset that includes either location coordinates for your points of interest (point map) or variable outcomes for your regions of interest (choropleth maps)\nA background map\n\nYou would use a JavaScript package that can be imported using leaflet in R.",
     "crumbs": [
       "Notes",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Chapter 6</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Chapter 6</span>"
     ]
   },
   {
     "objectID": "notes/Chapter-7.html",
     "href": "notes/Chapter-7.html",
-    "title": "15  Chapter 7",
+    "title": "16  Chapter 7",
     "section": "",
     "text": "Types of ineffective visualizations:\n\nugly: the aesthetics are not nice, but the data is all technically correct\nbad: the graph is overly confusing or complex\nwrong: the visualization is objectively correct, but the numbers/trends are not represented correctly\n\nParts of an effective visualization:\n\nprofessionalism: labelled axes, captions, and a tile\nacessibility: alt text, color-blind accessible pallette\nethics: make sure your data is collected and displayed ethically (is not purposefully misleading)",
     "crumbs": [
       "Notes",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Chapter 7</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Chapter 7</span>"
     ]
   },
   {
     "objectID": "notes/Review.html",
     "href": "notes/Review.html",
-    "title": "16  Review for Exam 1",
+    "title": "17  Review for Exam 1",
     "section": "",
     "text": "First steps:\n\nRead in the data\nlook at str and dim\n\nWhy visualize data:\n\ntrends\ndistribution\noutliers\n\nWhy visualize 1 variable?\nTo look at its distribution\nWhy visualize more than 1 variable?\nTo look at relationships\nMaximum number of categorical variables you can visualize in one plot?\n3: You can use a stacked/proportional bar chart with facets\nMaximum number of numerical variables you can visualize in one plot?\n7: You can use a scatterplot, and add color for the third, and size for the fourth, add shape for the fifth, turn numerical into categorical and use facets for the sixth, use 3D for the seventh\nMaximum number of numerical and categorical variables you can visualize in one plot?\n1 cat and 2 num: 1 scatterplot with color for the cat\n2 cat and 1 num:\nHow to make a plot more effective?\n\nAlternative text\nEverything you put on the graph has to have a purpose\nChoose the correct type of plot\nMake sure the data is CORRECT\nAxes labels + titles + captions (source) + legend\nEthical data visualization (not misleading)\nUse colors that have high contrast + are colorblind-friendly\n\nFor spatial data, longitude goes on the x-axis, and latitude goes on the y-axis\nA column chart is used when you already have count",
     "crumbs": [
       "Notes",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Review for Exam 1</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Review for Exam 1</span>"
     ]
   },
   {
     "objectID": "notes/Chapter-8.html",
     "href": "notes/Chapter-8.html",
-    "title": "17  Chapter 8",
+    "title": "18  Chapter 8",
     "section": "",
     "text": "Use the tidyverse package to wrangle data\nEach function acts on a data frame and returns a data frame:\n\narrange: arrange the rows according to some column\nfilter: filter out or obtain a subset of the rows\nselect: select a subset of columns\nmutate: create a new column\nsummarize: create a numerical summary of a column\ngroup_by: group the rows by a specific column\n\nWhich verb would help us…\n\nKeep only information about state names, county names, and the 2020 and 2016 Democratic support (not the 2012 results, demographics, etc): select\nGet only the data on Minnesota: filter\nDefine a new variable which calculates the change in Democratic support from 2016 to 2020, using dem_pct_20 and dem_pct_16: mutate\nSort the counties from highest to lowest Democratic support: arrange\nDetermine the total number of votes cast across all counties: **summarize*\n\nStructure of a few function:\n\nSelect: select(elections, c(state_name, county_name, dem_pct_20, dem_pct_16))\nFilter: filter(elections, state_name == “Minnesota”)\n\nSelect always goes before filter!",
     "crumbs": [
       "Notes",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Chapter 8</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Chapter 8</span>"
     ]
   },
   {
     "objectID": "notes/Chapter-9.html",
     "href": "notes/Chapter-9.html",
-    "title": "18  Chapter 9",
+    "title": "19  Chapter 9",
     "section": "",
     "text": "A way to count the number of data points in a group is by count(groups).\nInterpreting this:\npenguins %&gt;% filter(species == ‘Chinstrap’) %&gt;% group_by(sex) %&gt;% summarize(min = min(body_mass_g), max = max(body_mass_g)) %&gt;% mutate(range = max - min)\nThis takes the dataset penguins, and only uses chinstrap penguins. All chinstrap penguins are stratified by sex. For each sex, the minimum and maximum body mass is calculated. This is then piped to create a new column, in which the range of body mass is printed. This prints all the range, min, and max for female and male chinstrap penguins.\npenguins %&gt;% is.na()%&gt;% row$sum()%&gt;% table()\nthis gives us a table: the bottom row is how many rows, and the top row has how many values are na\npenguins %&gt;% is.na()%&gt;% col$sum()%&gt;% table()\nthis does the same, except the bottom row is how many columns, and the top row has how many values are na in those many columns. eg:\n0 2 11\n3 4 1\nThere are 3 columns with no na values, 4 columns with 2 na values, and 1 column with 11 na values.",
     "crumbs": [
       "Notes",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Chapter 9</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Chapter 9</span>"
     ]
   },
   {
     "objectID": "notes/Chapter-10.html",
     "href": "notes/Chapter-10.html",
-    "title": "19  Chapter 10",
+    "title": "20  Chapter 10",
     "section": "",
     "text": "Types of reshaped data:\n\nAggregate data: for example, using group_by() with summarize() gains aggregate information about our observations but loses data on individual observations.\nRaw data, reshaped: we often want to retain all information on individual observations, but need to reshape it in order to perform the task at hand.\n\nTo change the format:\npivot_wider: It will increase the number of columns based on the categorical variable chosen. Example:\npivor_wider(table, names_from=cat_var, values_from=quant/cat var)\npivot longer: It will increase the number of rows based on the columns chosen. Example:\npivot_longer(table, cols=1:4, names_to=var, values_to=var)",
     "crumbs": [
       "Notes",
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Chapter 10</span>"
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Chapter 10</span>"
     ]
   },
   {
     "objectID": "notes/Chapter-11.html",
     "href": "notes/Chapter-11.html",
-    "title": "20  Chapter 11",
+    "title": "21  Chapter 11",
     "section": "",
     "text": "Types of joins:\nJoins based on the key!\n\nleft join: keeps everything from the left and merges it with the table from the right\ninner join: keeps everything the right and left tables have in common\nfull join: keeps all data from the left and right\nanti join: discards any observations in the left table that do have a match in the right table\nsemi join: discards any observations in the left table that do not have a match in the right table",
     "crumbs": [
       "Notes",
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Chapter 11</span>"
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Chapter 11</span>"
+    ]
+  },
+  {
+    "objectID": "notes/Chapter-12.html",
+    "href": "notes/Chapter-12.html",
+    "title": "22  Chapter 12",
+    "section": "",
+    "text": "functions for changing the order of factor levels:\n\nfct_relevel() = manually reorder levels\nfct_reorder() = reorder levels according to values of another variable: To reverse this, just add the argument .desc=TRUE\nfct_infreq() = order levels from highest to lowest frequency\nfct_rev() = reverse the current order\n\nfunctions for changing the labels or values of factor levels:\n\nfct_recode() = manually change levels: For re-code, put the ‘new name’=‘old name’\nfct_lump() = group together least common levels",
+    "crumbs": [
+      "Notes",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Chapter 12</span>"
     ]
   },
   {

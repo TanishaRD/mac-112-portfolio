@@ -1,0 +1,14 @@
+---
+title: 'Chapter 12' 
+--- 
+functions for changing the order of factor levels: 
+
+- fct_relevel() = manually reorder levels
+- fct_reorder() = reorder levels according to values of another variable: To reverse this, just add the argument .desc=TRUE
+- fct_infreq() = order levels from highest to lowest frequency
+- fct_rev() = reverse the current order
+
+functions for changing the labels or values of factor levels:
+
+- fct_recode() = manually change levels: For re-code, put the 'new name'='old name'
+- fct_lump() = group together least common levels
