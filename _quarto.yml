@@ -38,6 +38,7 @@ book:
       - notes/Chapter-10.qmd
       - notes/Chapter-11.qmd
       - notes/Chapter-12.qmd
+      - notes/Chapter-13.qmd
 
 format:
   html:

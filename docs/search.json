@@ -677,5 +677,16 @@
     "crumbs": [
       "Notes"
     ]
+  },
+  {
+    "objectID": "notes/Chapter-13.html",
+    "href": "notes/Chapter-13.html",
+    "title": "23  Chapter 13",
+    "section": "",
+    "text": "function\narguments\nreturns\n\n\n\n\nstr_replace()\nx, pattern, replacement\na modified string\n\n\nstr_replace_all()\nx, pattern, replacement\na modified string\n\n\nstr_to_lower()\nx\na modified string\n\n\nstr_sub()\nx, start, end\na modified string\n\n\nstr_length()\nx\na number\n\n\nstr_detect()\nx, pattern\nTRUE/FALSE",
+    "crumbs": [
+      "Notes",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Chapter 13</span>"
+    ]
   }
 ]

@@ -43,8 +43,8 @@ grade_distribution |>
 The order of the grades is goofy! Construct a new column plot, manually reordering the grades from high (A) to low (NC) with "S" and "AU" at the end:
 
 ```{r}
- grade_distribution |>
-   mutate(grade = fct_relevel(grade, c("A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "NC", "S", "AU"))) |>
+grade_distribution |>
+   mutate(grade = fct_relevel(grade, c("A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "NC", "S", "AU")))%>%
    ggplot(aes(x = grade, y = n)) +
      geom_col()
 ```
