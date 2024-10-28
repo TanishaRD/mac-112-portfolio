@@ -113,6 +113,7 @@ Create a new dataset from `courses_clean`, named `stat`, that only includes STAT
 -   The result should have 19 rows and 4 columns.
 
 ```{r}
+#R starts counting positions at 1 
 stat<-courses_clean%>%
   filter(dept=='STAT')%>%
   mutate(name=str_replace(name, 'Introduction to', ' '))%>%

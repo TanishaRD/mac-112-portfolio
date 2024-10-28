@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>13&nbsp; Chapter 2 – Stat112 Notebook</title>
+<title>26&nbsp; Chapter 15 – Stat112 Notebook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../notes/Chapter-3.html" rel="next">
-<link href="../notes/README.html" rel="prev">
+<link href="../notes/Chapter-13.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/README.html">Notes</a></li><li class="breadcrumb-item"><a href="../notes/Chapter-2.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Chapter 2</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/README.html">Notes</a></li><li class="breadcrumb-item"><a href="../notes/Chapter-15.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Chapter 15</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -247,7 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/Chapter-2.html" class="sidebar-item-text sidebar-link active">
+  <a href="../notes/Chapter-2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Chapter 2</span></span></a>
   </div>
 </li>
@@ -325,7 +324,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/Chapter-15.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/Chapter-15.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Chapter 15</span></span></a>
   </div>
 </li>
@@ -342,9 +341,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/README.html">Notes</a></li><li class="breadcrumb-item"><a href="../notes/Chapter-2.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Chapter 2</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/README.html">Notes</a></li><li class="breadcrumb-item"><a href="../notes/Chapter-15.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Chapter 15</span></a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Chapter 2</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Chapter 15</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -361,17 +360,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>Starting a data project</p>
+<p>1.Data collection - A data project starts with data! Thus far, you’ve either been given data, or used TidyTuesday data</p>
+<ol start="2" type="1">
+<li>We will explore how to find data, save data, import this data into RStudio, and do some preliminary data cleaning.</li>
+</ol>
 <ul>
-<li>Quarto knits to a qmd and it makes documents far prettier than just knitting to an rmd. Quarto is the newest version of Rmarkdown</li>
-<li>Quarto supports multiple languages (python, Javascript, Julia, R)</li>
-<li>Don’t use the console unless you are doing calculations and looking for help</li>
-<li>To make something bold use two ** surrounding the phrase.</li>
-<li>To italicize something, use one * around the phrase (or _ around)</li>
-<li>Make sure to space out your code and comment your R-chunks</li>
-<li>CamelCase is like this thisVariableCapitalizesTheFirstLetterExceptTheFirst</li>
-<li>Snake case is like this this_is_snake_case</li>
-<li><a href="link">wordsOnTheScreen</a> is used to link to an image</li>
+<li>We will bring together our wrangling &amp; visualization tools to discuss exploratory data analysis (EDA). EDA is the process of getting to know our data, obtaining insights from data, and using these insights to formulate, refine, and explore research questions.</li>
 </ul>
+<p>File types compatible with R: - Excel files: .xls, .xlsx - R “data serialization” files: .rds - files with tab-separated values: .tsv - Comma-separated values: .csv</p>
+<p>Importing the data (using a csv): 1. read_csv 2. Find the file path of the csv 3. Prelim data checks: head, view, str, is it tidy? 4. Understanding the data: code book, where is the data from?</p>
 
 
 <!-- -->
@@ -851,30 +849,36 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../notes/README.html" class="pagination-link" aria-label="Notes">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Notes</span>
+      <a href="../notes/Chapter-13.html" class="pagination-link" aria-label="Chapter 13">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Chapter 13</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../notes/Chapter-3.html" class="pagination-link" aria-label="Chapter 3">
-        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Chapter 3</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Chapter 2"</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co">---</span></span>
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">--- </span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> 'Chapter 15' </span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co">---</span> </span>
 <span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="ss">- </span>Quarto knits to a qmd and it makes documents far prettier than just knitting to an rmd. Quarto is the newest version of Rmarkdown</span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="ss">- </span>Quarto supports multiple languages (python, Javascript, Julia, R)</span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="ss">- </span>Don’t use the console unless you are doing calculations and looking for help </span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="ss">- </span>To make something bold use two ** surrounding the phrase. </span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="ss">- </span>To italicize something, use one * around the phrase (or _ around) </span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="ss">- </span>Make sure to space out your code and comment your R-chunks </span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="ss">- </span>CamelCase is like this thisVariableCapitalizesTheFirstLetterExceptTheFirst</span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="ss">- </span>Snake case is like this this_is_snake_case </span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="ss">- </span><span class="co">[</span><span class="ot">wordsOnTheScreen</span><span class="co">](link)</span> is used to link to an image </span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5"></a>Starting a data project</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a>1.Data collection</span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="ss">- </span>A data project starts with data! Thus far, you’ve either been given data, or used TidyTuesday data</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="ss">2. </span>We will explore how to find data, save data, import this data into RStudio, and do some preliminary data cleaning.</span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="ss">- </span>We will bring together our wrangling &amp; visualization tools to discuss exploratory data analysis (EDA). EDA is the process of getting to know our data, obtaining insights from data, and using these insights to formulate, refine, and explore research questions.</span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a>File types compatible with R: </span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="ss">- </span>Excel files: .xls, .xlsx</span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="ss">- </span>R “data serialization” files: .rds</span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="ss">- </span>files with tab-separated values: .tsv</span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="ss">- </span>Comma-separated values: .csv </span>
+<span id="cb1-18"><a href="#cb1-18"></a></span>
+<span id="cb1-19"><a href="#cb1-19"></a>Importing the data (using a csv): </span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="ss">1. </span>read_csv </span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="ss">2. </span>Find the file path of the csv </span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="ss">3. </span>Prelim data checks: head, view, str, is it tidy? </span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="ss">4. </span>Understanding the data: code book, where is the data from? </span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

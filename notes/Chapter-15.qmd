@@ -1,0 +1,23 @@
+--- 
+title: 'Chapter 15' 
+--- 
+
+Starting a data project
+
+1.Data collection
+- A data project starts with data! Thus far, you’ve either been given data, or used TidyTuesday data
+
+2. We will explore how to find data, save data, import this data into RStudio, and do some preliminary data cleaning.
+- We will bring together our wrangling & visualization tools to discuss exploratory data analysis (EDA). EDA is the process of getting to know our data, obtaining insights from data, and using these insights to formulate, refine, and explore research questions.
+
+File types compatible with R: 
+- Excel files: .xls, .xlsx
+- R “data serialization” files: .rds
+- files with tab-separated values: .tsv
+- Comma-separated values: .csv 
+
+Importing the data (using a csv): 
+1. read_csv 
+2. Find the file path of the csv 
+3. Prelim data checks: head, view, str, is it tidy? 
+4. Understanding the data: code book, where is the data from? 

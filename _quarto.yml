@@ -24,6 +24,7 @@ book:
       - activities/Joining_data.qmd
       - activities/factors.qmd
       - activities/Strings.qmd
+      - activities/Data_import.qmd
     
     - part: notes/README.qmd
       chapters: 
@@ -40,6 +41,7 @@ book:
       - notes/Chapter-11.qmd
       - notes/Chapter-12.qmd
       - notes/Chapter-13.qmd
+      - notes/Chapter-15.qmd
 
 format:
   html:
