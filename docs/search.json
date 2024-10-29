@@ -714,6 +714,17 @@
     ]
   },
   {
+    "objectID": "notes/Chapter-16.html",
+    "href": "notes/Chapter-16.html",
+    "title": "27  Chapter 16",
+    "section": "",
+    "text": "EDA essentials\n\nStart small: We often start with lots of data – some of it useful, some of it not.\n\n\nFocus on just a small set of variables of interest.\nBreak down your research question into smaller pieces.\nObtain the most simple numerical & visual summaries that are relevant to your research questions.\n\n\nAsk questions: We typically start a data analysis with at least some general research questions in mind by obtaining numerical and graphical summaries that provide insight into these questions.\n\n\nwhat questions do these summaries answer?\nwhat questions don’t these summaries answer?\nwhat’s surprising or interesting here?\nwhat follow-up questions do these summaries provoke?\n\n\nRepeat: Repeat this iterative questioning and analysis process as necessary, letting our reflections on the previous questions inspire our next steps.",
+    "crumbs": [
+      "Notes",
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Chapter 16</span>"
+    ]
+  },
+  {
     "objectID": "activities/README.html",
     "href": "activities/README.html",
     "title": "Activities",

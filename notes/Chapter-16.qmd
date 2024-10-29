@@ -1,0 +1,20 @@
+---
+title: 'Chapter 16' 
+--- 
+
+EDA essentials
+
+1. Start small: We often start with lots of data – some of it useful, some of it not. 
+
+- Focus on just a small set of variables of interest.
+- Break down your research question into smaller pieces.
+- Obtain the most simple numerical & visual summaries that are relevant to your research questions.
+
+2. Ask questions: We typically start a data analysis with at least some general research questions in mind by obtaining numerical and graphical summaries that provide insight into these questions.
+
+- what questions do these summaries answer?
+- what questions don’t these summaries answer?
+- what’s surprising or interesting here?
+- what follow-up questions do these summaries provoke?
+
+3. Repeat: Repeat this iterative questioning and analysis process as necessary, letting our reflections on the previous questions inspire our next steps.
